@@ -175,10 +175,6 @@
         <available file="${zimbra.root.dir}/zm-build/RE" type="dir"/>
     </condition>
 
-    <condition property="zimbra.buildinfo.platform" value="${native.os}">
-        <not><isset property="${zimbra.buildinfo.platform}"/></not>
-    </condition>
-
     <loadfile property="zimbra.buildinfo.majorversion" srcFile="${zimbra.version.dir}/MAJOR">
       <filterchain>
         <striplinebreaks/>
@@ -229,17 +225,8 @@
         <not><isset property="${zimbra.buildinfo.relnum}"/></not>
     </condition>
 
-    <condition property="zimbra.buildinfo.release" value="${user.name}">
-        <not><isset property="${zimbra.buildinfo.release}"/></not>
-    </condition>
-    <condition property="zimbra.buildinfo.date" value="${DSTAMP}-${TSTAMP}">
-        <not><isset property="${zimbra.buildinfo.date}"/></not>
-    </condition>
-    <condition property="zimbra.buildinfo.host" value="${zimbra.server.hostname}">
-        <not><isset property="${zimbra.buildinfo.host}"/></not>
-    </condition>
     <property name="zimbra.buildinfo.all"
-              value="Version: ${zimbra.buildinfo.version}; Type: LIBRE; Release: ${zimbra.buildinfo.release}; Built: ${zimbra.buildinfo.date}; Host: ${zimbra.buildinfo.host}"/>
+              value="Version: ${zimbra.buildinfo.version}"/>
 
     <target name="set-dev-version">
       <if>
@@ -604,7 +591,7 @@
         <arg line="${localconfig-args}"/>
       </java>
     </target>
-    
+
     <target name="dist.dependencies">
          <antcall target="depend.${ant.project.name}"/>
     </target>
