@@ -166,7 +166,7 @@
     <!-- Build version -->
     <taskdef resource="net/sf/antcontrib/antlib.xml">
         <classpath>
-            <pathelement location="${build.deps.dir}/ant-contrib-1.0b1.jar"/>
+            <pathelement location="${zimbra.root.dir}/zm-zcs-lib/thirdparty/ant/ant-contrib-current.jar"/>
         </classpath>
     </taskdef>
     <tstamp/>
